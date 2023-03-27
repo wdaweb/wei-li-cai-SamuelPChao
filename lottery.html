@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Lottery Homework</title>
+</head>
+<body>
+	<div id="A"></div>
+	<div id="B"></div>
+	<script>
+		const lotteryA = [];
+		const lotteryB = [];
+		const lotteryWin=[[],[]];
+		for(let i =1;i<=38;i++){
+			lotteryA.push(i);
+		}
+		for(let i = 1; i<=8;i++){
+			lotteryB.push(i)
+		};
+		for(let i = 1; i<=6;i++){
+			const num = Math.trunc(Math.random()*lotteryA.length);
+			lotteryWin[0].push(lotteryA[num]);
+			lotteryA.splice(num,1);
+		}
+		const numB =Math.trunc(Math.random()*lotteryB.length);
+		lotteryWin[1].push(lotteryB[numB]);
+		lotteryB.splice(numB,1);
+		console.log(lotteryA);
+		console.log(lotteryB);
+		console.log(lotteryWin);
+		document.getElementById('A').textContent = 'A section number are '+lotteryWin[0];
+		document.getElementById('B').textContent = 'B section number is ' +lotteryWin[1];
+
+	</script>
+</body>
+</html>
